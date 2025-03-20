@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 class Order(models.Model):
@@ -7,11 +8,12 @@ class Order(models.Model):
         ('Cancelled', 'Cancelled')
     ]
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     customer_name = models.CharField(max_length=255)
     product_name = models.CharField(max_length=255)
     quantity = models.PositiveIntegerField()
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Pending')
-    created_at = models.DateTimeField( auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)  # Auto-update timestamp
 
     class Meta:
