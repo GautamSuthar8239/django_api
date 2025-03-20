@@ -1,0 +1,15 @@
+# Virtual Environment
+venv/
+*.pyc
+__pycache__/
+
+# Database
+db.sqlite3
+
+# Environment Variables
+.env
+serviceAccountKey.json
+
+# VSCode & JetBrains IDE
+.vscode/
+.idea/
